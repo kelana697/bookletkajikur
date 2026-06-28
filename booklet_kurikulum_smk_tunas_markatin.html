@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booklet — Analisis Kurikulum SMK Tunas Markatin</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#475569;font-family:'Inter',sans-serif;padding:24px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.page{width:560px;min-height:793px;background:#fff;position:relative;overflow:hidden;box-shadow:0 8px 40px rgba(0,0,0,.3);display:flex;flex-direction:column}
+
+/* ── COVER ── */
+.cover{background:#0B1F4A;flex:1;min-height:793px;display:flex;flex-direction:column}
+.cov-topbar{height:5px;background:linear-gradient(90deg,#D97706,#FCD34D,#D97706);flex-shrink:0}
+.cov-body{flex:1;padding:30px 34px 22px;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.cov-body::before{content:'';position:absolute;top:-80px;right:-80px;width:240px;height:240px;border-radius:50%;background:rgba(252,211,77,.07);pointer-events:none}
+.cov-body::after{content:'';position:absolute;bottom:40px;left:-50px;width:180px;height:180px;border-radius:50%;background:rgba(252,211,77,.05);pointer-events:none}
+.cov-top{}
+.cov-kaptag{display:inline-flex;align-items:center;gap:6px;border:1px solid rgba(252,211,77,.35);background:rgba(252,211,77,.09);color:#FCD34D;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;text-transform:uppercase;letter-spacing:2px;padding:4px 14px;border-radius:20px;margin-bottom:18px}
+.cov-eyebrow{font-family:'Inter',sans-serif;font-size:8.5px;color:rgba(255,255,255,.45);text-transform:uppercase;letter-spacing:2.5px;margin-bottom:8px}
+.cov-title{font-family:'Poppins',sans-serif;font-size:22px;font-weight:900;color:#fff;line-height:1.15;margin-bottom:8px}
+.cov-title em{color:#FCD34D;font-style:normal}
+.cov-sub{font-family:'Poppins',sans-serif;font-size:12px;font-weight:600;color:rgba(255,255,255,.65);margin-bottom:22px}
+.cov-rule{width:44px;height:3px;background:linear-gradient(90deg,#FCD34D,rgba(252,211,77,0));border-radius:2px;margin-bottom:26px}
+.cov-logo-wrap{display:flex;justify-content:center;margin:0 0 28px}
+.cov-logo{width:78px;height:78px;border-radius:50%;border:2px solid rgba(252,211,77,.25);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:center;font-size:32px}
+.cov-divider{border:none;border-top:1px solid rgba(255,255,255,.1);margin-bottom:14px}
+.cov-bottom{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}
+.cov-group-tag{font-family:'Poppins',sans-serif;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#FCD34D;margin-bottom:5px}
+.cov-member{font-family:'Inter',sans-serif;font-size:8px;color:rgba(255,255,255,.72);line-height:1.75}
+.cov-fac{text-align:right}
+.cov-fac-name{font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:600;color:rgba(255,255,255,.75);line-height:1.55;margin-bottom:2px}
+.cov-fac-univ{font-family:'Inter',sans-serif;font-size:7px;color:rgba(255,255,255,.35)}
+.cov-year{display:inline-block;margin-top:6px;font-family:'Poppins',sans-serif;font-size:7px;font-weight:700;color:#FCD34D;background:rgba(252,211,77,.12);border-radius:10px;padding:2px 10px;letter-spacing:1px}
+
+/* ── PAGE HEADER ── */
+.pg-hd{background:linear-gradient(135deg,#0B1F4A 0%,#1B4F8A 100%);padding:15px 28px 13px;flex-shrink:0;position:relative}
+.pg-hd::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D97706,#FCD34D,#D97706)}
+.pg-hd-eye{font-family:'Poppins',sans-serif;font-size:7px;font-weight:600;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:3px}
+.pg-hd h2{font-family:'Poppins',sans-serif;font-size:14px;font-weight:800;color:#fff;line-height:1.2}
+
+/* ── PAGE FOOTER ── */
+.pg-ft{background:#0B1F4A;padding:5px 28px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;margin-top:auto}
+.pg-ft span{font-family:'Inter',sans-serif;font-size:6.5px;color:rgba(255,255,255,.35)}
+.pg-ft .pgnum{font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;color:rgba(252,211,77,.6)}
+
+/* ── PAGE CONTENT ── */
+.pg-c{flex:1;padding:16px 28px 14px;overflow:hidden}
+
+/* ── SECTION LABEL ── */
+.sl{font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#1B4F8A;margin:10px 0 5px;display:flex;align-items:center;gap:6px}
+.sl::after{content:'';flex:1;height:1px;background:#E2E8F0}
+
+/* ── BODY TEXT ── */
+.bt{font-family:'Inter',sans-serif;font-size:9px;color:#374151;line-height:1.78;text-align:justify}
+.bt p{margin-bottom:8px}
+
+/* ── STAT GRID ── */
+.stg{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:8px 0}
+.stg.g2{grid-template-columns:repeat(2,1fr)}
+.stg.g4{grid-template-columns:repeat(4,1fr)}
+.sc{border-radius:8px;padding:9px 7px;text-align:center}
+.sc.navy{background:linear-gradient(135deg,#0B1F4A,#1B4F8A)}
+.sc.amber{background:linear-gradient(135deg,#78350F,#D97706)}
+.sc.emerald{background:linear-gradient(135deg,#064E3B,#10B981)}
+.sc.purple{background:linear-gradient(135deg,#3B0764,#7C3AED)}
+.sc.teal{background:linear-gradient(135deg,#0C4A6E,#0284C7)}
+.sc.rose{background:linear-gradient(135deg,#881337,#E11D48)}
+.sc .n{font-family:'Poppins',sans-serif;font-size:20px;font-weight:900;color:#FCD34D;line-height:1}
+.sc .l{font-family:'Inter',sans-serif;font-size:7px;color:rgba(255,255,255,.7);margin-top:3px;text-transform:uppercase;letter-spacing:.3px}
+
+/* ── INFO BOX ── */
+.ib{background:#EEF4FF;border:1px solid #B8D0F0;border-radius:7px;padding:8px 11px;display:flex;align-items:flex-start;gap:7px;margin:5px 0}
+.ib-icon{font-size:13px;flex-shrink:0;line-height:1.3}
+.ib-text{font-family:'Inter',sans-serif;font-size:8px;color:#1E3A6E;line-height:1.6}
+.ib-text strong{font-weight:700}
+
+/* ── PROGRAM CARDS ── */
+.prog-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:7px 0}
+.pc{border-radius:8px;padding:11px;border-left:3px solid}
+.pc.akl{background:#EFF6FF;border-color:#2563EB}
+.pc.mplb{background:#FFFBEB;border-color:#D97706}
+.pc h4{font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:800;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px}
+.pc.akl h4{color:#1D4ED8}.pc.mplb h4{color:#B45309}
+.pc p{font-family:'Inter',sans-serif;font-size:7.5px;color:#4B5563;line-height:1.55}
+.pc-badge{display:inline-block;margin-top:5px;font-family:'Poppins',sans-serif;font-size:6.5px;font-weight:700;border-radius:8px;padding:2px 8px}
+.pc.akl .pc-badge{background:#DBEAFE;color:#1E40AF}
+.pc.mplb .pc-badge{background:#FEF3C7;color:#92400E}
+
+/* ── SCHOOL PHOTO PLACEHOLDER ── */
+.school-ph{border-radius:10px;background:linear-gradient(135deg,#1B4F8A,#2563EB);height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;margin-bottom:10px}
+.school-ph::before{content:'🏫';font-size:36px}
+.school-ph-cap{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.4);text-align:center;font-family:'Inter',sans-serif;font-size:7px;color:rgba(255,255,255,.85);padding:3px}
+
+/* ── CURRICULUM FLOW ── */
+.cf{display:flex;align-items:stretch;margin:10px 0}
+.cf-item{flex:1;background:linear-gradient(135deg,#0B1F4A,#1B4F8A);color:#fff;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:600;text-align:center;padding:10px 5px;border-radius:6px;line-height:1.3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.cf-item .cf-icon{font-size:14px}
+.cf-arrow{display:flex;align-items:center;font-size:13px;color:#FCD34D;padding:0 3px;flex-shrink:0}
+
+/* ── 2×2 COMPONENT GRID ── */
+.cg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.cg-box{border-radius:8px;padding:10px;border:1px solid}
+.cgb1{background:#EFF6FF;border-color:#BAD3F6}.cgb2{background:#F0FDF4;border-color:#86EFAC}
+.cgb3{background:#FFFBEB;border-color:#FCD34D}.cgb4{background:#FAF5FF;border-color:#DDD6FE}
+.cg-box h4{font-family:'Poppins',sans-serif;font-size:8.5px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:5px}
+.cgb1 h4{color:#1E40AF}.cgb2 h4{color:#065F46}.cgb3 h4{color:#92400E}.cgb4 h4{color:#4C1D95}
+.cg-box p{font-family:'Inter',sans-serif;font-size:7.5px;color:#4B5563;line-height:1.55}
+
+/* ── NEEDS 3-COL ── */
+.n3c{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:7px 0}
+.nc{border-radius:8px;padding:10px 9px;border-top:3px solid}
+.nc.nblue{background:#EFF6FF;border-color:#3B82F6}
+.nc.ngreen{background:#F0FDF4;border-color:#22C55E}
+.nc.namber{background:#FFFBEB;border-color:#F59E0B}
+.nc h3{font-family:'Poppins',sans-serif;font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.3px;margin-bottom:6px;display:flex;align-items:center;gap:3px}
+.nc.nblue h3{color:#1D4ED8}.nc.ngreen h3{color:#15803D}.nc.namber h3{color:#B45309}
+.ni{font-family:'Inter',sans-serif;font-size:7.5px;color:#374151;line-height:1.55;padding-left:10px;position:relative;margin-bottom:3px}
+.ni::before{content:'▶';position:absolute;left:0;font-size:5px;top:3px}
+.nc.nblue .ni::before{color:#3B82F6}.nc.ngreen .ni::before{color:#22C55E}.nc.namber .ni::before{color:#F59E0B}
+
+/* ── CSS BAR CHART ── */
+.bar-c{margin:6px 0}
+.bar-row{display:flex;align-items:center;gap:7px;margin-bottom:5px}
+.bar-lbl{font-family:'Inter',sans-serif;font-size:7.5px;color:#374151;width:115px;flex-shrink:0;text-align:right}
+.bar-track{flex:1;background:#F1F5F9;border-radius:3px;height:15px;overflow:hidden}
+.bar-fill{height:100%;border-radius:3px;display:flex;align-items:center;justify-content:flex-end;padding-right:5px}
+.bar-fill span{font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#fff}
+
+/* ── PHOTO PLACEHOLDERS ── */
+.pg2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.pph{border-radius:8px;background:#EEF4FF;border:1.5px dashed #93C5FD;height:65px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px}
+.pph .phi{font-size:20px}
+.pph .phl{font-family:'Inter',sans-serif;font-size:7px;color:#60A5FA;text-align:center}
+
+/* ── OBS METHOD CARDS ── */
+.omc3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:7px 0}
+.omc{border-radius:8px;padding:10px 8px;background:#fff;border:1px solid #E5E7EB;text-align:center}
+.omc .omi{font-size:19px;margin-bottom:4px}
+.omc h4{font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;color:#1B4F8A;margin-bottom:3px}
+.omc p{font-family:'Inter',sans-serif;font-size:7px;color:#6B7280;line-height:1.5}
+
+/* ── CHECKLIST TABLE ── */
+.ct{width:100%;border-collapse:collapse;font-size:7.5px;margin:7px 0}
+.ct th{background:#1B4F8A;color:#fff;padding:5px 8px;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:600;text-align:left}
+.ct th:first-child{border-radius:4px 0 0 0}.ct th:last-child{border-radius:0 4px 0 0}
+.ct td{padding:4px 8px;border-bottom:1px solid #F1F5F9;color:#374151;font-family:'Inter',sans-serif;line-height:1.45;vertical-align:top}
+.ct tr:nth-child(even) td{background:#F8FAFC}
+.cy{background:#D1FAE5;color:#065F46;font-weight:700;border-radius:3px;padding:1px 6px;font-size:7px;font-family:'Poppins',sans-serif;white-space:nowrap}
+
+/* ── GAP TABLE ── */
+.gt{width:100%;border-collapse:collapse;font-size:7px;margin:6px 0}
+.gt th{background:#0B1F4A;color:#fff;padding:6px 7px;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;text-align:left}
+.gt th:first-child{border-radius:4px 0 0 0;width:17%}.gt th:last-child{border-radius:0 4px 0 0;width:30%}
+.gt td{padding:5px 7px;border-bottom:1px solid #E5EDF7;color:#374151;font-family:'Inter',sans-serif;line-height:1.45;vertical-align:top}
+.gt tr:nth-child(even) td{background:#F5F9FE}
+.gt td:first-child{font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#1B4F8A}
+.gt td.gap-c{background:#FFF7ED;border-left:2px solid #FCA5A5;font-style:italic;color:#92400E}
+
+/* ── CIPP CARDS ── */
+.cipp4{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
+.cipp{border-radius:10px;padding:12px 11px;border:1px solid;position:relative;overflow:hidden}
+.cipp::before{content:attr(data-l);position:absolute;right:6px;top:0;font-family:'Poppins',sans-serif;font-size:46px;font-weight:900;opacity:.06;line-height:1}
+.ci-ctx{background:#EFF6FF;border-color:#93C5FD;color:#1D4ED8}
+.ci-inp{background:#F0FDF4;border-color:#86EFAC;color:#15803D}
+.ci-prc{background:#FFFBEB;border-color:#FCD34D;color:#92400E}
+.ci-prd{background:#FAF5FF;border-color:#C4B5FD;color:#5B21B6}
+.cipp .cc-eye{font-family:'Poppins',sans-serif;font-size:6.5px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;opacity:.6;margin-bottom:2px}
+.cipp .cc-ttl{font-family:'Poppins',sans-serif;font-size:11px;font-weight:900;margin-bottom:6px;line-height:1}
+.cipp .cc-sec{margin-bottom:4px}
+.cipp .cc-sh{font-family:'Poppins',sans-serif;font-size:7px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;display:flex;align-items:center;gap:3px}
+.cc-sh.plus{color:#059669}.cc-sh.minus{color:#DC2626}
+.cipp-it{font-family:'Inter',sans-serif;font-size:7.5px;color:#374151;line-height:1.5;padding-left:9px;position:relative;margin-bottom:2px}
+.cipp-it::before{content:'•';position:absolute;left:0}
+.cipp-it.plus::before{color:#10B981}.cipp-it.minus::before{color:#EF4444}
+
+/* ── CIPP SUMMARY TABLE ── */
+.cst{width:100%;border-collapse:collapse;font-size:7.5px;margin:8px 0}
+.cst th{background:#0B1F4A;color:#fff;padding:6px 8px;font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;text-align:left}
+.cst th:first-child{border-radius:4px 0 0 0;width:17%}.cst th:last-child{border-radius:0 4px 0 0}
+.cst td{padding:6px 8px;border-bottom:1px solid #E5EDF7;font-family:'Inter',sans-serif;color:#374151;line-height:1.45;vertical-align:top}
+.cst tr:nth-child(even) td{background:#F5F9FE}
+.cst td:first-child{font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;color:#fff;text-align:center}
+.cst tr:nth-child(1) td:first-child{background:#1B4F8A}
+.cst tr:nth-child(2) td:first-child{background:#059669}
+.cst tr:nth-child(3) td:first-child{background:#D97706}
+.cst tr:nth-child(4) td:first-child{background:#7C3AED}
+
+/* ── RECOMMENDATIONS ── */
+.rph{display:inline-flex;align-items:center;gap:6px;border-radius:20px;padding:3px 12px;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:800;text-transform:uppercase;letter-spacing:1px;margin-bottom:7px}
+.rph.short{background:#D1FAE5;color:#065F46}
+.rph.long{background:#EDE9FE;color:#4C1D95}
+.reco-items{display:flex;flex-direction:column;gap:5px;margin-bottom:10px}
+.ri{display:flex;gap:7px;align-items:flex-start;padding:6px 8px;border-radius:6px;background:#F8FAFC;border-left:3px solid}
+.ri.sh{border-color:#10B981}.ri.lg{border-color:#7C3AED}
+.rn{width:18px;height:18px;border-radius:50%;color:#fff;font-family:'Poppins',sans-serif;font-size:8px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ri.sh .rn{background:#10B981}.ri.lg .rn{background:#7C3AED}
+.rt{font-family:'Inter',sans-serif;font-size:7.5px;color:#374151;line-height:1.5}
+.rt strong{font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#1F2937;display:block;margin-bottom:1px}
+
+/* ── CONCLUSIONS ── */
+.con-items{display:flex;flex-direction:column;gap:9px}
+.con-item{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:8px;background:#EEF4FF;border:1px solid #B8D0F0}
+.con-num{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#0B1F4A,#1B4F8A);color:#FCD34D;font-family:'Poppins',sans-serif;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.con-text{font-family:'Inter',sans-serif;font-size:8.5px;color:#1E3A6E;line-height:1.65}
+
+/* ── HIGHLIGHT BOX ── */
+.hb-amber{background:#FFFBEB;border:1px solid #FCD34D;border-radius:7px;padding:8px 12px;margin:6px 0;font-family:'Inter',sans-serif;font-size:8.5px;color:#78350F;line-height:1.6}
+.hb-blue{background:#EEF4FF;border:1px solid #B8D0F0;border-radius:7px;padding:8px 12px;margin:6px 0;font-family:'Inter',sans-serif;font-size:8.5px;color:#1E3A6E;line-height:1.6}
+
+/* ── GENDER VISUAL ── */
+.gender-vis{display:flex;align-items:center;gap:10px;background:#F8FAFC;border-radius:8px;padding:10px 12px;margin:7px 0}
+.gv-bar{flex:1;height:20px;border-radius:4px;overflow:hidden;display:flex}
+.gv-male{background:linear-gradient(90deg,#2563EB,#3B82F6);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#fff}
+.gv-female{background:linear-gradient(90deg,#EC4899,#F472B6);display:flex;align-items:center;justify-content:center;font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#fff}
+.gv-legend{display:flex;gap:10px;flex-shrink:0}
+.gvl-item{display:flex;align-items:center;gap:4px;font-family:'Inter',sans-serif;font-size:7.5px;color:#374151}
+.gvl-dot{width:10px;height:10px;border-radius:50%}
+
+/* ── DOSEN BOX ── */
+.dosen-box{background:#F0F6FF;border-radius:8px;padding:8px 12px;margin:8px 0;display:flex;gap:8px}
+.db-item{flex:1;text-align:center;font-family:'Inter',sans-serif;font-size:8px;color:#1E3A6E;line-height:1.5}
+.db-item strong{font-family:'Poppins',sans-serif;font-size:8.5px;font-weight:700;display:block;margin-bottom:2px;color:#0B1F4A}
+
+@media print{
+  body{background:#fff;padding:0;gap:0}
+  .page{box-shadow:none;break-after:page;margin:0;width:148mm;min-height:210mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════
+     COVER
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="cover">
+    <div class="cov-topbar"></div>
+    <div class="cov-body">
+      <div class="cov-top">
+        <div class="cov-kaptag">📚 Kajian Kurikulum • 2026</div>
+        <div class="cov-eyebrow">Laporan Analisis</div>
+        <div class="cov-title">
+          ANALISIS IMPLEMENTASI<br>DAN PENGEMBANGAN<br><em>KURIKULUM</em>
+        </div>
+        <div class="cov-sub">di SMK Tunas Markatin</div>
+        <div class="cov-rule"></div>
+        <div class="cov-logo-wrap">
+          <div class="cov-logo">🎓</div>
+        </div>
+      </div>
+      <div>
+        <hr class="cov-divider">
+        <div class="cov-bottom">
+          <div>
+            <div class="cov-group-tag">Disusun oleh — Kelompok 9</div>
+            <div class="cov-member">1. Faqih Muhammad Alkadzim (1707625086)<br>
+              2. Zaki Kelana Putra (1707625..)<br>
+              3. Salsabilah Azahra (1707625070)</div>
+          </div>
+          <div class="cov-fac">
+            <div class="cov-fac-name">Fakultas Ekonomi dan Bisnis<br>Universitas Negeri Jakarta</div>
+            <div class="cov-fac-univ">Mata Kuliah Kajian Kurikulum</div>
+            <div class="cov-year">2025 / 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 1 · KATA PENGANTAR
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 1</div>
+    <h2>Kata Pengantar</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="dosen-box">
+      <div class="db-item"><strong>Dosen Pengampu</strong>Kusworo, S.Pd., M.Pd.</div>
+      <div style="width:1px;background:#C3D8F5;flex-shrink:0"></div>
+      <div class="db-item"><strong>Dosen Pengampu</strong>Dr. Annisa Luthfia, M.Pd.</div>
+    </div>
+
+    <div class="bt">
+      <p>Puji syukur penulis panjatkan ke hadirat Allah SWT yang telah melimpahkan rahmat dan karunia-Nya, sehingga penulis dapat menyelesaikan laporan yang berjudul <em>"Analisis Implementasi dan Pengembangan Kurikulum di SMK Tunas Markatin"</em> ini dengan baik dan tepat waktu.</p>
+
+      <p>Laporan ini disusun guna memenuhi penilaian Ujian Akhir Semester mata kuliah Kajian Kurikulum. Dalam proses penyusunannya, penulis mendapatkan banyak bimbingan, arahan, serta dukungan dari berbagai pihak. Oleh karena itu, penulis mengucapkan terima kasih yang sebesar-besarnya kepada Bapak Kusworo, S.Pd., M.Pd. dan Ibu Dr. Annisa Luthfia, M.Pd. selaku dosen pengampu yang telah memberikan bimbingan dan arahan yang sangat berharga.</p>
+
+      <p>Penulis juga mengucapkan terima kasih kepada pihak SMK Tunas Markatin yang telah memberikan kesempatan dan informasi yang dibutuhkan dalam proses analisis, khususnya kepada Ibu Andi Nurul Hafiza selaku Wakil Kepala Bidang Kurikulum dan Ibu Suci selaku Ketua Program Keahlian MPLB yang bersedia menjadi narasumber dalam kegiatan wawancara.</p>
+
+      <p>Kegiatan observasi dan wawancara dilaksanakan di SMK Tunas Markatin pada tanggal 24 Juni 2026 sebagai bagian dari Project Based Learning (PjBL) mata kuliah Kajian Kurikulum. Hasil kajian ini diharapkan dapat memberikan gambaran menyeluruh mengenai pelaksanaan Kurikulum Merdeka di SMK Tunas Markatin serta menghasilkan rekomendasi yang bermakna bagi pengembangan kurikulum ke depan.</p>
+
+      <p>Penulis menyadari bahwa laporan ini masih jauh dari kesempurnaan. Oleh karena itu, kritik dan saran yang membangun sangat penulis harapkan demi perbaikan di masa yang akan datang. Semoga laporan ini dapat memberikan manfaat bagi pembaca serta berkontribusi dalam pengembangan dunia pendidikan, khususnya dalam bidang kurikulum.</p>
+    </div>
+
+    <div style="text-align:right;margin-top:16px">
+      <div style="font-family:'Inter',sans-serif;font-size:8.5px;color:#4B5563">Jakarta, 28 Juni 2026</div>
+      <div style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:700;color:#1B4F8A;margin-top:5px">Penulis — Kelompok 9</div>
+      <div style="font-family:'Inter',sans-serif;font-size:8px;color:#6B7280;margin-top:2px">Faqih M. Alkadzim &nbsp;·&nbsp; Zaki Kelana Putra &nbsp;·&nbsp; Salsabilah Azahra</div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">1</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 2 · PROFIL SEKOLAH
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 2</div>
+    <h2>Profil Sekolah</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="school-ph">
+      <div class="school-ph-cap">SMK Tunas Markatin — Jl. Waru No. 20B, Rawamangun, Jakarta Timur</div>
+    </div>
+
+    <div class="stg g4" style="grid-template-columns:repeat(4,1fr)">
+      <div class="sc navy"><div class="n">191</div><div class="l">Total Siswa</div></div>
+      <div class="sc amber"><div class="n">7</div><div class="l">Rombongan Belajar</div></div>
+      <div class="sc emerald"><div class="n">9</div><div class="l">Guru Pengajar</div></div>
+      <div class="sc purple"><div class="n">B</div><div class="l">Akreditasi</div></div>
+    </div>
+
+    <div class="stg" style="grid-template-columns:1fr 1fr 1fr;margin-top:7px">
+      <div class="sc navy"><div class="n">2</div><div class="l">Program Keahlian</div></div>
+      <div class="sc teal"><div class="n">2.560</div><div class="l">Luas Lahan (m²)</div></div>
+      <div class="sc rose"><div class="n">1989</div><div class="l">Tahun Berdiri</div></div>
+    </div>
+
+    <!-- Gender distribution -->
+    <div class="gender-vis">
+      <div style="font-family:'Poppins',sans-serif;font-size:7.5px;font-weight:700;color:#374151;white-space:nowrap">Komposisi Siswa</div>
+      <div class="gv-bar">
+        <div class="gv-male" style="width:45%">86 L</div>
+        <div class="gv-female" style="width:55%">105 P</div>
+      </div>
+      <div class="gv-legend">
+        <div class="gvl-item"><div class="gvl-dot" style="background:#3B82F6"></div>Laki-laki (45%)</div>
+        <div class="gvl-item"><div class="gvl-dot" style="background:#EC4899"></div>Perempuan (55%)</div>
+      </div>
+    </div>
+
+    <div class="ib">
+      <div class="ib-icon">📍</div>
+      <div class="ib-text"><strong>Alamat:</strong> Jl. Waru No. 20B, Kel. Rawamangun, Kec. Pulo Gadung, Kota Adm. Jakarta Timur, DKI Jakarta 13220 · NPSN 20103547 · Kepala Sekolah: Bapak Ali Mudin · Internet: Dedicated Fiber Optic 22.000 VA</div>
+    </div>
+
+    <div class="sl">Program Keahlian</div>
+    <div class="prog-row">
+      <div class="pc akl">
+        <h4>📊 Akuntansi & Keuangan Lembaga (AKL)</h4>
+        <p>Mencetak tenaga profesional di bidang keuangan yang teliti dan adaptif. Fokus pada siklus akuntansi, perbankan dasar, perpajakan, fintech, dan software akuntansi.</p>
+        <div class="pc-badge">Sertifikasi KKNI Level II</div>
+      </div>
+      <div class="pc mplb">
+        <h4>🗂️ Manajemen Perkantoran & Layanan Bisnis (MPLB)</h4>
+        <p>Mempersiapkan tenaga administrasi dan sekretaris modern. Cakupan: manajemen kantor, kearsipan digital, korespondensi bisnis, dan layanan prima.</p>
+        <div class="pc-badge">Sertifikasi Kesekretariatan</div>
+      </div>
+    </div>
+
+    <div class="hb-blue">🏛️ <strong>Mitra Industri:</strong> Mahkamah Agung RI, Universitas Bina Nusantara (BINUS), dan Universitas Negeri Jakarta (UNJ) — dimanfaatkan sebagai tempat PKL di bagian perpustakaan dan humas.</div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">2</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 3 · STRUKTUR KURIKULUM
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 3</div>
+    <h2>Struktur Kurikulum</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">📌 SMK Tunas Markatin telah menerapkan <strong>Kurikulum Merdeka</strong> sejak tahun 2024 — memberikan fleksibilitas bagi satuan pendidikan untuk merancang pembelajaran sesuai karakteristik peserta didik dan kebutuhan lingkungan.</div>
+
+    <div class="sl">Alur Implementasi Kurikulum Merdeka</div>
+
+    <div class="cf">
+      <div class="cf-item"><div class="cf-icon">📋</div>Penetapan Kurikulum Merdeka</div>
+      <div class="cf-arrow">›</div>
+      <div class="cf-item"><div class="cf-icon">📑</div>Penyusunan KOSP</div>
+      <div class="cf-arrow">›</div>
+      <div class="cf-item"><div class="cf-icon">🎓</div>Pembelajaran di Kelas</div>
+      <div class="cf-arrow">›</div>
+      <div class="cf-item"><div class="cf-icon">🏢</div>PKL 6 Bulan</div>
+      <div class="cf-arrow">›</div>
+      <div class="cf-item"><div class="cf-icon">🏆</div>Sertifikasi Kompetensi</div>
+    </div>
+
+    <div class="sl">Komponen Utama Kurikulum</div>
+    <div class="cg2">
+      <div class="cg-box cgb1">
+        <h4>📋 KOSP (Kurikulum Operasional Satuan Pendidikan)</h4>
+        <p>Disusun melalui forum kolaboratif bersama kepala sekolah wilayah Jakarta Timur I, difasilitasi narasumber kurikulum. Mencakup seluruh rancangan pembelajaran sekolah.</p>
+      </div>
+      <div class="cg-box cgb2">
+        <h4>🏢 PKL (Praktik Kerja Lapangan)</h4>
+        <p>Berlangsung 6 bulan pada semester ganjil kelas XII. Peserta didik ditempatkan di mitra industri dalam kelompok 3–4 orang dengan pendampingan guru pembimbing.</p>
+      </div>
+      <div class="cg-box cgb3">
+        <h4>🏭 TEFA (Teaching Factory)</h4>
+        <p>Fasilitas laptop & peralatan arsip fisik/digital. Mensimulasikan lingkungan kerja nyata: membuat surat, mengarsipkan dokumen, dan tugas kesekretariatan untuk persiapan USK.</p>
+      </div>
+      <div class="cg-box cgb4">
+        <h4>🏆 USK (Ujian Sertifikasi Kompetensi)</h4>
+        <p>Capaian akhir: AKL meraih sertifikat KKNI Level II, MPLB meraih sertifikasi kesekretariatan. Pendalaman materi dilakukan setiap Sabtu untuk kelas XII.</p>
+      </div>
+    </div>
+
+    <div class="sl">Struktur Kelas Berdasarkan Program</div>
+    <div class="stg" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="sc navy"><div class="n">X</div><div class="l">Kelas 10 — Fondasi Kompetensi</div></div>
+      <div class="sc amber"><div class="n">XI</div><div class="l">Kelas 11 — Pendalaman Materi</div></div>
+      <div class="sc emerald"><div class="n">XII</div><div class="l">Kelas 12 — PKL + Sertifikasi</div></div>
+    </div>
+
+    <div class="ib" style="margin-top:7px">
+      <div class="ib-icon">💡</div>
+      <div class="ib-text"><strong>Kurikulum Merdeka</strong> menekankan penguasaan kompetensi vokasional melalui Project Based Learning (PjBL), pembelajaran student-centered, serta integrasi dunia kerja nyata melalui PKL dan TEFA.</div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">3</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 4 · NEEDS ASSESSMENT (Bagian 1)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 4</div>
+    <h2>Analisis Kebutuhan (Needs Assessment)</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">Analisis kebutuhan mengidentifikasi tiga dimensi utama yang harus dipenuhi dalam pengembangan kurikulum SMK Tunas Markatin agar relevan dengan kebutuhan peserta didik, dunia kerja, dan perkembangan teknologi.</div>
+
+    <div class="sl">Tiga Dimensi Kebutuhan</div>
+    <div class="n3c">
+      <div class="nc nblue">
+        <h3>👨‍🎓 Kebutuhan Siswa</h3>
+        <div class="ni">Penguatan keterampilan teknologi perkantoran (laptop, 10 jari)</div>
+        <div class="ni">Pembentukan kedisiplinan dan etos kerja</div>
+        <div class="ni">Kesiapan mental lingkungan profesional</div>
+        <div class="ni">Penguatan materi berkesinambungan antarkelas</div>
+        <div class="ni">Bimbingan karir sejak dini</div>
+        <div class="ni">Kolaborasi dan kerja tim (PKL kelompok)</div>
+        <div class="ni">Komunikasi profesional & korespondensi bisnis</div>
+        <div class="ni">Literasi digital & adaptasi teknologi</div>
+      </div>
+      <div class="nc ngreen">
+        <h3>🏭 Kebutuhan Industri</h3>
+        <div class="ni">Administrasi perkantoran kompeten</div>
+        <div class="ni">Pengelolaan dokumen & arsip (fisik/digital)</div>
+        <div class="ni">Layanan pelanggan prima</div>
+        <div class="ni">Koordinasi operasional kantor</div>
+        <div class="ni">Kedisiplinan & ketepatan waktu</div>
+        <div class="ni">Etika profesional & sikap kerja</div>
+        <div class="ni">Adaptasi dengan rekan kerja lintas usia</div>
+        <div class="ni">Inisiatif dan tanggung jawab</div>
+      </div>
+      <div class="nc namber">
+        <h3>💻 Kebutuhan Teknologi</h3>
+        <div class="ni">Pemanfaatan AI produktif (belum ada)</div>
+        <div class="ni">Learning Management System / LMS</div>
+        <div class="ni">Pengelolaan arsip digital (DMS)</div>
+        <div class="ni">Korespondensi bisnis digital (email)</div>
+        <div class="ni">Perangkat lunak perkantoran (spreadsheet, word)</div>
+        <div class="ni">Sistem informasi manajemen kantor</div>
+        <div class="ni">Video tutorial & simulasi digital</div>
+        <div class="ni">Platform pembelajaran daring</div>
+      </div>
+    </div>
+
+    <div class="sl">Tingkat Prioritas Kebutuhan</div>
+    <div class="bar-c">
+      <div class="bar-row">
+        <div class="bar-lbl">Kedisiplinan & Etos Kerja</div>
+        <div class="bar-track"><div class="bar-fill" style="width:92%;background:linear-gradient(90deg,#10B981,#34D399)"><span>Sangat Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Kesiapan Mental Kerja</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#10B981,#34D399)"><span>Sangat Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Keterampilan Teknologi</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#3B82F6,#60A5FA)"><span>Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Integrasi AI & LMS</div>
+        <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"><span>Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Perluasan Mitra Industri</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#D97706,#FCD34D)"><span>Menengah</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Sertifikasi Internasional</div>
+        <div class="bar-track"><div class="bar-fill" style="width:50%;background:linear-gradient(90deg,#EF4444,#F87171)"><span>Menengah</span></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">4</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 5 · NEEDS ASSESSMENT (Bagian 2)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 5</div>
+    <h2>Analisis Kebutuhan — Profil Siswa & Keterampilan Abad 21</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="sl">Karakteristik Peserta Didik</div>
+    <div class="stg" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="sc navy">
+        <div class="n" style="font-size:14px">Ekonomi</div>
+        <div class="l">Menengah ke Bawah</div>
+      </div>
+      <div class="sc amber">
+        <div class="n" style="font-size:14px">Motivasi</div>
+        <div class="l">Langsung Bekerja</div>
+      </div>
+      <div class="sc teal">
+        <div class="n" style="font-size:14px">Gen Z</div>
+        <div class="l">Digital Native</div>
+      </div>
+    </div>
+
+    <div class="ib">
+      <div class="ib-icon">👥</div>
+      <div class="ib-text">Sebagian besar peserta didik memilih SMK karena ingin langsung bekerja setelah lulus. Sebagian masih belum memiliki gambaran karir yang jelas, sementara sebagian lainnya terkendala faktor ekonomi keluarga dalam menentukan pilihan sekolah.</div>
+    </div>
+
+    <div class="sl">Keterampilan Abad 21 — Fokus Program MPLB</div>
+    <div class="cg2">
+      <div class="cg-box cgb1">
+        <h4>🤝 Kolaborasi & Kerja Tim</h4>
+        <p>Dibuktikan melalui mekanisme PKL berkelompok (3–4 orang). Peserta didik belajar berkoordinasi, membagi tugas, dan berkomunikasi secara profesional di lingkungan kerja nyata.</p>
+      </div>
+      <div class="cg-box cgb2">
+        <h4>💬 Komunikasi Profesional</h4>
+        <p>Korespondensi bisnis, surat niaga, surat penawaran, pelayanan prima. Penilaian berbasis praktik: guru menilai kemampuan menyusun berbagai jenis surat bisnis secara langsung.</p>
+      </div>
+      <div class="cg-box cgb3">
+        <h4>💻 Literasi Digital</h4>
+        <p>Penggunaan laptop, mengetik 10 jari, pengelolaan arsip digital. Sebagian siswa masih memerlukan bimbingan dasar. Guru memberikan pendampingan bertahap sesuai kebutuhan.</p>
+      </div>
+      <div class="cg-box cgb4">
+        <h4>🧠 Berpikir Kritis</h4>
+        <p>Pembelajaran student-centered mendorong peserta didik aktif mengeksplorasi materi. Guru sebagai fasilitator membimbing proses analisis dan pemecahan masalah konteks perkantoran.</p>
+      </div>
+    </div>
+
+    <div class="sl">Kondisi Penguasaan Teknologi Peserta Didik</div>
+    <div class="bar-c">
+      <div class="bar-row">
+        <div class="bar-lbl">Penggunaan Smartphone</div>
+        <div class="bar-track"><div class="bar-fill" style="width:90%;background:linear-gradient(90deg,#10B981,#34D399)"><span>90%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Komunikasi Digital (WA/Email)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#3B82F6,#60A5FA)"><span>78%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Operasional Laptop Dasar</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#D97706,#FCD34D)"><span>65%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Mengetik 10 Jari</div>
+        <div class="bar-track"><div class="bar-fill" style="width:45%;background:linear-gradient(90deg,#EF4444,#F87171)"><span>45%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Pengelolaan Arsip Digital</div>
+        <div class="bar-track"><div class="bar-fill" style="width:40%;background:linear-gradient(90deg,#EF4444,#F87171)"><span>40%</span></div></div>
+      </div>
+    </div>
+
+    <div class="hb-amber">⚠️ Meskipun peserta didik adalah generasi Z yang akrab dengan teknologi keseharian, keterampilan teknologi <em>perkantoran formal</em> (arsip digital, mengetik 10 jari, perangkat lunak produktivitas) masih perlu diasah secara sistematis dalam kurikulum.</div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">5</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 6 · HASIL OBSERVASI — Pembelajaran
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 6</div>
+    <h2>Hasil Observasi Pembelajaran</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="ib" style="margin-bottom:8px">
+      <div class="ib-icon">📅</div>
+      <div class="ib-text"><strong>Observasi dilaksanakan:</strong> 24 Juni 2026, pukul 13.00 WIB · Observer: Faqih M. Alkadzim, Zaki Kelana Putra, Salsabilah Azahra · Lokasi: SMK Tunas Markatin, Rawamangun, Jakarta Timur</div>
+    </div>
+
+    <div class="sl">Metode dan Pendekatan Pembelajaran</div>
+    <div class="omc3">
+      <div class="omc">
+        <div class="omi">👥</div>
+        <h4>Student-Centered</h4>
+        <p>Peserta didik aktif mengeksplorasi materi. Guru berperan sebagai fasilitator, bukan penceramah tunggal.</p>
+      </div>
+      <div class="omc">
+        <div class="omi">🎮</div>
+        <h4>Pembelajaran Interaktif</h4>
+        <p>Pada jam terakhir, guru selalu menyiapkan permainan bervariasi agar siswa tidak merasa jenuh atau mengantuk.</p>
+      </div>
+      <div class="omc">
+        <div class="omi">🛠️</div>
+        <h4>Praktik Langsung</h4>
+        <p>Asesmen berbasis kinerja: menyusun surat niaga, surat penawaran, mengarsipkan dokumen di TEFA.</p>
+      </div>
+    </div>
+
+    <div class="sl">Rekap Observasi Implementasi Kurikulum</div>
+    <table class="ct">
+      <tr>
+        <th style="width:5%">No</th>
+        <th style="width:38%">Aspek yang Diamati</th>
+        <th style="width:10%">Status</th>
+        <th>Catatan</th>
+      </tr>
+      <tr>
+        <td style="text-align:center">1</td>
+        <td>Sekolah memiliki dokumen kurikulum lengkap</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Tersusun sistematis & dapat diakses seluruh guru</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">2</td>
+        <td>Terdapat silabus untuk setiap mata pelajaran</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Disesuaikan dengan kurikulum yang berlaku</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">3</td>
+        <td>Guru memiliki RPP sesuai kurikulum</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Seluruh guru telah menyusun RPP sesuai ketentuan</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">4</td>
+        <td>Pembelajaran dilaksanakan sesuai RPP</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Proses berjalan sesuai RPP masing-masing guru</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">5</td>
+        <td>Metode pembelajaran bervariasi & inovatif</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Game di jam terakhir mencegah kejenuhan siswa</td>
+      </tr>
+      <tr>
+        <td style="text-align:center">6</td>
+        <td>Penilaian dilakukan sesuai kurikulum</td>
+        <td><span class="cy">✓ Ya</span></td>
+        <td>Mencakup aspek pengetahuan, keterampilan & sikap</td>
+      </tr>
+    </table>
+
+    <div class="sl">Dokumentasi Observasi</div>
+    <div class="pg2">
+      <div class="pph"><div class="phi">🏫</div><div class="phl">Kondisi Sarana & Prasarana Sekolah</div></div>
+      <div class="pph"><div class="phi">💻</div><div class="phl">Fasilitas Teaching Factory (TEFA)</div></div>
+      <div class="pph"><div class="phi">📚</div><div class="phl">Kegiatan Belajar Mengajar di Kelas</div></div>
+      <div class="pph"><div class="phi">🤝</div><div class="phl">Sesi Wawancara dengan Narasumber</div></div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">6</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 7 · HASIL OBSERVASI — Media & Asesmen
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 7</div>
+    <h2>Hasil Observasi — Media Pembelajaran & Asesmen</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="sl">Media & Sarana Pembelajaran</div>
+    <div class="cg2">
+      <div class="cg-box cgb1">
+        <h4>🏭 Teaching Factory (TEFA)</h4>
+        <p>Laptop, peralatan arsip fisik & digital untuk mensimulasikan lingkungan kerja nyata. Digunakan persiapan USK: membuat surat, mengarsipkan dokumen, tugas kesekretariatan.</p>
+      </div>
+      <div class="cg-box cgb2">
+        <h4>🌐 Koneksi Internet</h4>
+        <p>Dedicated Fiber Optic dengan daya 22.000 VA. Mendukung pembelajaran berbasis digital, meskipun pemanfaatannya untuk LMS dan platform daring belum optimal.</p>
+      </div>
+      <div class="cg-box cgb3">
+        <h4>📚 Perpustakaan & Laboratorium</h4>
+        <p>1 perpustakaan sebagai sumber belajar, 1 laboratorium untuk pembelajaran berbasis teknologi. Fasilitas penunjang (UKS, OSIS, Mushola) tersedia dalam kondisi baik.</p>
+      </div>
+      <div class="cg-box cgb4">
+        <h4>📅 Pendalaman Sabtu</h4>
+        <p>Program pendalaman materi setiap Sabtu untuk kelas XII — respons adaptif sekolah terhadap tantangan retensi materi dasar setelah siswa menjalani PKL 6 bulan.</p>
+      </div>
+    </div>
+
+    <div class="sl">Sistem Asesmen Program MPLB</div>
+    <div class="stg" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="sc navy">
+        <div class="n" style="font-size:11px">Praktik</div>
+        <div class="l">Dominan — Penilaian Kinerja Langsung</div>
+      </div>
+      <div class="sc amber">
+        <div class="n" style="font-size:11px">Observasi</div>
+        <div class="l">Guru Menilai Penerapan Materi</div>
+      </div>
+      <div class="sc emerald">
+        <div class="n" style="font-size:11px">USK</div>
+        <div class="l">Ujian Sertifikasi Kompetensi</div>
+      </div>
+    </div>
+
+    <div class="ib">
+      <div class="ib-icon">📝</div>
+      <div class="ib-text">Penilaian dilakukan melalui <strong>praktik secara langsung</strong>. Guru menilai kemampuan peserta didik dalam menerapkan materi yang telah dipelajari, misalnya: menyusun surat niaga, surat penawaran, surat permintaan, dan mengarsipkan dokumen sesuai prosedur.</div>
+    </div>
+
+    <div class="sl">Temuan Khusus — Tantangan Retensi Materi</div>
+    <div class="hb-amber">
+      ⚠️ <strong>Kendala Utama TEFA:</strong> Peserta didik kelas XII cenderung melupakan materi dasar yang dipelajari di kelas X setelah menjalani PKL selama 6 bulan. Solusi yang sudah diterapkan: pendalaman materi setiap hari Sabtu sebagai program review intensif. Namun, diperlukan strategi pedagogis yang lebih sistematis.
+    </div>
+
+    <div class="sl">Wawancara — Narasumber</div>
+    <div class="prog-row">
+      <div class="pc akl">
+        <h4>🎤 Sesi 1 — Implementasi Kurikulum</h4>
+        <p><strong>Narasumber:</strong> Ibu Andi Nurul Hafiza<br>Wakil Kepala Bidang Kurikulum & Guru BK — mengajar selama ±5 tahun, menjabat Wakasek Kurikulum sejak 2024.</p>
+      </div>
+      <div class="pc mplb">
+        <h4>🎤 Sesi 2 — Program Keahlian MPLB</h4>
+        <p><strong>Narasumber:</strong> Ibu Suci<br>Ketua Program Keahlian Manajemen Perkantoran dan Layanan Bisnis (MPLB) SMK Tunas Markatin.</p>
+      </div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">7</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 8 · ANALISIS GAP KURIKULUM (Bagian 1)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 8</div>
+    <h2>Analisis Gap Kurikulum</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">Analisis ini membandingkan <strong>kondisi ideal</strong> kurikulum dengan <strong>kondisi aktual</strong> di SMK Tunas Markatin, untuk mengidentifikasi kesenjangan yang perlu ditangani dalam pengembangan kurikulum.</div>
+
+    <div class="sl">Tabel Kesenjangan Kurikulum (1 — 4)</div>
+    <table class="gt">
+      <tr>
+        <th>Aspek</th>
+        <th>Kondisi Ideal</th>
+        <th>Kondisi Aktual</th>
+        <th>Gap / Kesenjangan</th>
+      </tr>
+      <tr>
+        <td>Penyusunan KOSP</td>
+        <td>KOSP disusun sistematis, terukur, dan dievaluasi berkala oleh seluruh pemangku kepentingan secara mandiri.</td>
+        <td>Disusun melalui forum kolaboratif dengan sekolah lain di wilayah Jakarta Timur I, belum sepenuhnya mandiri.</td>
+        <td class="gap-c">Evaluasi KOSP perlu diintensifkan; sekolah perlu membangun kapasitas mandiri dalam penyusunan kurikulum.</td>
+      </tr>
+      <tr>
+        <td>PKL</td>
+        <td>PKL terintegrasi penuh, didukung sistem monitoring komprehensif dan umpan balik industri ke kurikulum.</td>
+        <td>PKL 6 bulan sudah terstruktur dengan bimbingan guru, namun tantangan kedisiplinan peserta didik masih muncul.</td>
+        <td class="gap-c">Perlu penguatan pembimbingan PKL dan formalisasi mekanisme umpan balik industri ke kurikulum.</td>
+      </tr>
+      <tr>
+        <td>Kesinambungan Materi</td>
+        <td>Materi dirancang dengan sistem spiral yang memastikan penguatan berkelanjutan dari kelas X hingga XII.</td>
+        <td>Peserta didik kelas XII cenderung melupakan materi dasar kelas X setelah PKL, diatasi dengan kelas Sabtu.</td>
+        <td class="gap-c">Perlu strategi pedagogis khusus (review berkala, portofolio materi) untuk menjaga retensi pengetahuan.</td>
+      </tr>
+      <tr>
+        <td>Teaching Factory</td>
+        <td>TEFA beroperasi layaknya unit usaha nyata dengan peralatan lengkap dan sistem manajemen modern.</td>
+        <td>TEFA sudah ada namun masih terbatas pada laptop dan peralatan arsip dasar — belum mencerminkan kantor digital modern.</td>
+        <td class="gap-c">Perlu peningkatan kapasitas TEFA dengan peralatan digital terkini dan simulasi lingkungan kerja lebih autentik.</td>
+      </tr>
+    </table>
+
+    <div class="ib">
+      <div class="ib-icon">📊</div>
+      <div class="ib-text">Dari 8 aspek yang dianalisis, <strong>seluruh aspek menunjukkan kesenjangan</strong> yang perlu diatasi. Tingkat kekritisan tertinggi ada pada: integrasi teknologi, kesinambungan materi, dan kapasitas TEFA. Berlanjut di halaman berikutnya.</div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">8</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 9 · ANALISIS GAP KURIKULUM (Bagian 2)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 9</div>
+    <h2>Analisis Gap Kurikulum (Lanjutan)</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="sl">Tabel Kesenjangan Kurikulum (5 — 8)</div>
+    <table class="gt">
+      <tr>
+        <th>Aspek</th>
+        <th>Kondisi Ideal</th>
+        <th>Kondisi Aktual</th>
+        <th>Gap / Kesenjangan</th>
+      </tr>
+      <tr>
+        <td>Integrasi Teknologi</td>
+        <td>Pembelajaran mengintegrasikan AI, LMS, dan media digital secara terpadu dalam seluruh mata pelajaran.</td>
+        <td>Teknologi masih terbatas pada perangkat dasar. AI dan LMS sama sekali belum diimplementasikan.</td>
+        <td class="gap-c">Perlu roadmap integrasi teknologi bertahap, dimulai dari LMS, dilanjutkan dengan AI produktif.</td>
+      </tr>
+      <tr>
+        <td>Sistem Asesmen</td>
+        <td>Asesmen beragam: formatif, sumatif, portofolio digital, dan penilaian berbasis industri secara menyeluruh.</td>
+        <td>Asesmen didominasi penilaian praktik langsung. Portofolio dan asesmen digital belum optimal.</td>
+        <td class="gap-c">Perlu diversifikasi metode asesmen mencakup portofolio kompetensi dan asesmen berbasis proyek.</td>
+      </tr>
+      <tr>
+        <td>Kesiapan Kerja Lulusan</td>
+        <td>Peserta didik lulus dengan profil kompetensi lengkap yang sesuai standar industri secara konsisten.</td>
+        <td>Kesiapan kerja bervariasi; sebagian masih memerlukan dukungan dalam aspek kedisiplinan dan teknologi dasar.</td>
+        <td class="gap-c">Perlu program pengembangan soft skills dan pembinaan karakter yang terintegrasi dalam kurikulum.</td>
+      </tr>
+      <tr>
+        <td>Kerja Sama Industri</td>
+        <td>Kerja sama industri luas, beragam, dan menghasilkan umpan balik kurikuler yang konkret dan formal.</td>
+        <td>Kerja sama dengan 3 instansi (MA, BINUS, UNJ) berjalan lancar namun belum ada umpan balik kurikuler formal.</td>
+        <td class="gap-c">Perlu formalisasi mekanisme umpan balik industri dan perluasan mitra ke sektor swasta yang lebih beragam.</td>
+      </tr>
+    </table>
+
+    <div class="sl">Ringkasan Tingkat Kesenjangan</div>
+    <div class="bar-c">
+      <div class="bar-row">
+        <div class="bar-lbl">Integrasi AI & LMS</div>
+        <div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#EF4444,#F87171)"><span>Kritis</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Kapasitas TEFA</div>
+        <div class="bar-track"><div class="bar-fill" style="width:78%;background:linear-gradient(90deg,#D97706,#FCD34D)"><span>Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Kesinambungan Materi</div>
+        <div class="bar-track"><div class="bar-fill" style="width:72%;background:linear-gradient(90deg,#D97706,#FCD34D)"><span>Tinggi</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Kesiapan Kerja Lulusan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:65%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"><span>Menengah</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Penyusunan KOSP</div>
+        <div class="bar-track"><div class="bar-fill" style="width:58%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"><span>Menengah</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Kerja Sama Industri</div>
+        <div class="bar-track"><div class="bar-fill" style="width:45%;background:linear-gradient(90deg,#3B82F6,#60A5FA)"><span>Sedang</span></div></div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">9</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 10 · EVALUASI CIPP (Infografis)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 10</div>
+    <h2>Evaluasi Kurikulum — Model CIPP</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">Model <strong>CIPP (Context, Input, Process, Product)</strong> yang dikembangkan Stufflebeam digunakan untuk mengevaluasi empat dimensi implementasi kurikulum secara komprehensif di SMK Tunas Markatin.</div>
+
+    <div class="cipp4">
+      <!-- CONTEXT -->
+      <div class="cipp ci-ctx" data-l="C">
+        <div class="cc-eye">Dimensi 1</div>
+        <div class="cc-ttl">Context</div>
+        <div class="cc-sec">
+          <div class="cc-sh plus">✚ Kekuatan</div>
+          <div class="cipp-it plus">Lokasi strategis — akses ke instansi pemerintah & PT</div>
+          <div class="cipp-it plus">Dua program relevan: AKL & MPLB (sektor administratif & keuangan)</div>
+          <div class="cipp-it plus">Kurikulum Merdeka memberikan fleksibilitas tinggi</div>
+        </div>
+        <div class="cc-sec">
+          <div class="cc-sh minus">✖ Tantangan</div>
+          <div class="cipp-it minus">Motivasi belajar bervariasi; sebagian pilih SMK karena kendala ekonomi</div>
+          <div class="cipp-it minus">Belum semua siswa memiliki gambaran karir yang jelas</div>
+        </div>
+      </div>
+      <!-- INPUT -->
+      <div class="cipp ci-inp" data-l="I">
+        <div class="cc-eye">Dimensi 2</div>
+        <div class="cc-ttl">Input</div>
+        <div class="cc-sec">
+          <div class="cc-sh plus">✚ Kekuatan</div>
+          <div class="cipp-it plus">9 guru berkomitmen mengikuti pelatihan berkelanjutan</div>
+          <div class="cipp-it plus">Kepala sekolah berlatar belakang guru MPLB</div>
+          <div class="cipp-it plus">TEFA tersedia, internet Fiber Optic, 3 mitra aktif</div>
+        </div>
+        <div class="cc-sec">
+          <div class="cc-sh minus">✖ Tantangan</div>
+          <div class="cipp-it minus">Rasio guru : siswa belum ideal (9 guru / 191 siswa)</div>
+          <div class="cipp-it minus">Fasilitas teknologi perlu diperbarui</div>
+          <div class="cipp-it minus">LMS dan perangkat AI belum tersedia</div>
+        </div>
+      </div>
+      <!-- PROCESS -->
+      <div class="cipp ci-prc" data-l="P">
+        <div class="cc-eye">Dimensi 3</div>
+        <div class="cc-ttl">Process</div>
+        <div class="cc-sec">
+          <div class="cc-sh plus">✚ Kekuatan</div>
+          <div class="cipp-it plus">PKL 6 bulan terstruktur dengan pendampingan guru</div>
+          <div class="cipp-it plus">Pembelajaran student-centered yang aktif</div>
+          <div class="cipp-it plus">Program pendalaman Sabtu — respons adaptif</div>
+        </div>
+        <div class="cc-sec">
+          <div class="cc-sh minus">✖ Tantangan</div>
+          <div class="cipp-it minus">Evaluasi KOSP belum optimal & sistematis</div>
+          <div class="cipp-it minus">Umpan balik industri ke kurikulum belum formal</div>
+          <div class="cipp-it minus">Tantangan kedisiplinan PKL belum tertangani sistematis</div>
+        </div>
+      </div>
+      <!-- PRODUCT -->
+      <div class="cipp ci-prd" data-l="P">
+        <div class="cc-eye">Dimensi 4</div>
+        <div class="cc-ttl">Product</div>
+        <div class="cc-sec">
+          <div class="cc-sh plus">✚ Kekuatan</div>
+          <div class="cipp-it plus">Pengalaman kerja nyata melalui PKL 6 bulan</div>
+          <div class="cipp-it plus">Sertifikasi KKNI Lv II (AKL) & kesekretariatan (MPLB)</div>
+          <div class="cipp-it plus">Keterampilan administratif & akuntansi dasar</div>
+        </div>
+        <div class="cc-sec">
+          <div class="cc-sh minus">✖ Tantangan</div>
+          <div class="cipp-it minus">Variasi kesiapan lulusan masih tinggi</div>
+          <div class="cipp-it minus">Monitoring dampak lulusan belum sistematis</div>
+          <div class="cipp-it minus">Belum ada sistem pelacakan alumni formal</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib">
+      <div class="ib-icon">💡</div>
+      <div class="ib-text">Hasil evaluasi CIPP menunjukkan bahwa SMK Tunas Markatin memiliki <strong>fondasi kuat</strong> pada dimensi Context dan Process, namun memerlukan <strong>peningkatan signifikan</strong> pada dimensi Input (teknologi) dan Product (monitoring lulusan).</div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">10</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 11 · EVALUASI CIPP (Ringkasan Tabel)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 11</div>
+    <h2>Evaluasi CIPP — Ringkasan & Implikasi</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="sl">Tabel Ringkasan Evaluasi CIPP</div>
+    <table class="cst">
+      <tr>
+        <th>Dimensi</th>
+        <th>Kelebihan Utama</th>
+        <th>Kekurangan / Tantangan</th>
+      </tr>
+      <tr>
+        <td>CONTEXT</td>
+        <td>Lokasi strategis Jakarta Timur, dua program keahlian relevan, Kurikulum Merdeka fleksibel untuk konteks vokasi.</td>
+        <td>Motivasi & latar ekonomi peserta didik bervariasi; sebagian belum memiliki orientasi karir yang jelas.</td>
+      </tr>
+      <tr>
+        <td>INPUT</td>
+        <td>Guru berdedikasi & aktif pelatihan, kepala sekolah berlatar MPLB, kemitraan industri aktif, internet fiber optic.</td>
+        <td>SDM guru relatif sedikit, fasilitas teknologi perlu diperbarui, LMS dan perangkat AI belum tersedia.</td>
+      </tr>
+      <tr>
+        <td>PROCESS</td>
+        <td>PKL 6 bulan terstruktur, pembelajaran student-centered, program pendalaman Sabtu sebagai inovasi adaptif.</td>
+        <td>KOSP belum optimal, umpan balik industri ke kurikulum belum diformalkan, kedisiplinan PKL masih jadi tantangan.</td>
+      </tr>
+      <tr>
+        <td>PRODUCT</td>
+        <td>Sertifikasi USK (KKNI Lv II & kesekretariatan), pengalaman kerja nyata PKL, keterampilan vokasional dasar.</td>
+        <td>Variasi kesiapan lulusan, monitoring pasca-PKL belum sistematis, belum ada alumni tracking system.</td>
+      </tr>
+    </table>
+
+    <div class="sl">Implikasi untuk Pengembangan Kurikulum</div>
+    <div class="cg2">
+      <div class="cg-box cgb1">
+        <h4>🎯 Prioritas Jangka Pendek</h4>
+        <p>Perkuat dimensi <strong>Input</strong> dengan implementasi LMS, pelatihan teknologi guru, dan perluasan fasilitas TEFA. Formalkan umpan balik industri untuk memperkuat dimensi <strong>Process</strong>.</p>
+      </div>
+      <div class="cg-box cgb4">
+        <h4>🚀 Prioritas Jangka Panjang</h4>
+        <p>Bangun alumni tracking system (Product), integrasikan AI dalam pembelajaran, kembangkan TEFA menjadi unit digital penuh. Perkuat kapasitas evaluasi KOSP internal sekolah.</p>
+      </div>
+    </div>
+
+    <div class="sl">Peta Kekuatan vs Kelemahan</div>
+    <div class="bar-c">
+      <div class="bar-row">
+        <div class="bar-lbl">Context — Kekuatan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:80%;background:linear-gradient(90deg,#10B981,#34D399)"><span>80%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Input — Kekuatan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:60%;background:linear-gradient(90deg,#3B82F6,#60A5FA)"><span>60%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Process — Kekuatan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:70%;background:linear-gradient(90deg,#D97706,#FCD34D)"><span>70%</span></div></div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-lbl">Product — Kekuatan</div>
+        <div class="bar-track"><div class="bar-fill" style="width:55%;background:linear-gradient(90deg,#7C3AED,#A78BFA)"><span>55%</span></div></div>
+      </div>
+    </div>
+
+    <div class="hb-blue">📌 Skor keseluruhan kekuatan CIPP rata-rata <strong>66%</strong> — menunjukkan implementasi yang cukup baik namun dengan ruang peningkatan signifikan terutama di dimensi Input dan Product.</div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">11</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 12 · REKOMENDASI — Jangka Pendek (1)
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 12</div>
+    <h2>Rekomendasi Pengembangan Kurikulum</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">Rekomendasi disusun berdasarkan 7 temuan utama observasi dan analisis, dibagi menjadi dua fase implementasi untuk memastikan kelayakan dan dampak yang terukur.</div>
+
+    <div class="rph short">⚡ Jangka Pendek (0–1 Tahun)</div>
+    <div class="reco-items">
+      <div class="ri sh">
+        <div class="rn">1</div>
+        <div class="rt"><strong>Program Bridging Materi Sebelum PKL</strong>Sesi review intensif 2–4 minggu sebelum PKL, mencakup modul ringkasan kompetensi dasar kelas X dan tes diagnostik untuk mengidentifikasi materi yang perlu diperkuat.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">2</div>
+        <div class="rt"><strong>Penguatan Pembinaan Karakter & Kedisiplinan</strong>Modul etika kerja, kedisiplinan, dan kesiapan mental terintegrasi dalam kegiatan pra-PKL. Libatkan narasumber dari industri dan alumni sukses sebagai role model.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">3</div>
+        <div class="rt"><strong>Pelatihan Guru Teknologi Pendidikan</strong>Pelatihan intensif platform digital, pembuatan modul ajar digital, dan pemanfaatan AI produktif sederhana (asisten penulisan surat, pengelolaan data kantor).</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">4</div>
+        <div class="rt"><strong>Diversifikasi Sistem Asesmen</strong>Tambahkan portofolio digital yang mendokumentasikan perkembangan kompetensi secara berkelanjutan, serta asesmen formatif berbasis proyek kecil lintas semester.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">5</div>
+        <div class="rt"><strong>Optimalisasi Tim Penyusun KOSP</strong>Bentuk tim internal terstruktur dengan jadwal review semester yang jelas dan keterlibatan semua pemangku kepentingan — tidak hanya bergantung pada forum wilayah.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">6</div>
+        <div class="rt"><strong>Implementasi Learning Management System (LMS)</strong>Adopsi Google Classroom, Moodle, atau platform serupa untuk manajemen tugas, distribusi materi, rekam jejak belajar, dan komunikasi guru–peserta didik.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">12</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 13 · REKOMENDASI — Jangka Pendek (2) + Jangka Panjang
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 13</div>
+    <h2>Rekomendasi — Jangka Pendek (Lanjutan)</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="rph short">⚡ Jangka Pendek (0–1 Tahun) — Lanjutan</div>
+    <div class="reco-items">
+      <div class="ri sh">
+        <div class="rn">7</div>
+        <div class="rt"><strong>Integrasi AI Produktif dalam Pembelajaran MPLB</strong>Gunakan AI asisten untuk latihan penulisan surat bisnis, pengelolaan jadwal, dan simulasi layanan pelanggan digital — mempersiapkan siswa menghadapi lingkungan kerja berbasis AI.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">8</div>
+        <div class="rt"><strong>Perluasan & Formalisasi Kerja Sama Industri</strong>Perluas mitra ke sektor swasta beragam dan formalkan mekanisme umpan balik melalui rapat kurikulum tahunan agar masukan industri dapat langsung diintegrasikan ke kurikulum.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">9</div>
+        <div class="rt"><strong>Peningkatan Fasilitas TEFA</strong>Tambah Document Management System (DMS) profesional, perangkat konferensi video untuk simulasi rapat, dan perangkat komunikasi bisnis modern sesuai standar kantor masa kini.</div>
+      </div>
+      <div class="ri sh">
+        <div class="rn">10</div>
+        <div class="rt"><strong>Program Mentoring Alumni</strong>Bangun sistem mentoring yang menghubungkan peserta didik aktif dengan alumni yang berhasil di dunia kerja — memberikan inspirasi karir dan bimbingan kontekstual yang nyata.</div>
+      </div>
+    </div>
+
+    <div class="rph long" style="margin-top:12px">🚀 Jangka Panjang (2–3 Tahun)</div>
+    <div class="reco-items">
+      <div class="ri lg">
+        <div class="rn">1</div>
+        <div class="rt"><strong>Teaching Factory Digital Terpadu</strong>Kembangkan TEFA menjadi unit pembelajaran yang sepenuhnya mencerminkan perkantoran digital modern: DMS elektronik, simulasi layanan berbasis AI, koneksi langsung ke platform industri.</div>
+      </div>
+      <div class="ri lg">
+        <div class="rn">2</div>
+        <div class="rt"><strong>Sertifikasi Kompetensi Internasional / Regional</strong>Jajaki sertifikasi Microsoft Office Specialist atau sertifikasi administrasi profesional internasional untuk meningkatkan daya saing lulusan di pasar kerja yang semakin global.</div>
+      </div>
+      <div class="ri lg">
+        <div class="rn">3</div>
+        <div class="rt"><strong>Alumni Tracking System</strong>Bangun sistem pelacakan karir alumni yang sistematis untuk mengevaluasi relevansi kurikulum dengan keberhasilan lulusan dan mendapatkan umpan balik jangka panjang yang terukur.</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">13</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 14 · REKOMENDASI — Roadmap Visual
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 14</div>
+    <h2>Roadmap Pengembangan Kurikulum</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="rph long" style="margin-bottom:10px">🚀 Jangka Panjang (Lanjutan)</div>
+    <div class="reco-items" style="margin-bottom:14px">
+      <div class="ri lg">
+        <div class="rn">4</div>
+        <div class="rt"><strong>Kelas Industri / Program Dual System</strong>Peserta didik belajar langsung di perusahaan mitra, menggabungkan teori dan praktik secara berimbang di lingkungan kerja nyata — melampaui model PKL konvensional.</div>
+      </div>
+      <div class="ri lg">
+        <div class="rn">5</div>
+        <div class="rt"><strong>Kapasitas Evaluasi Kurikulum Internal</strong>Bangun tim evaluator kurikulum internal yang terlatih agar sekolah mampu melakukan evaluasi mandiri dan berkala — tidak hanya bergantung pada forum wilayah eksternal.</div>
+      </div>
+    </div>
+
+    <div class="sl">Peta Jalan Pengembangan (Timeline)</div>
+
+    <!-- Visual Roadmap -->
+    <div style="background:#F8FAFC;border-radius:10px;padding:12px;border:1px solid #E2E8F0">
+      <div style="display:flex;gap:6px;margin-bottom:10px">
+        <div style="flex:1;background:linear-gradient(135deg,#065F46,#10B981);border-radius:8px;padding:10px;color:#fff">
+          <div style="font-family:'Poppins',sans-serif;font-size:9px;font-weight:800;margin-bottom:4px">⚡ FASE 1 (0–6 Bulan)</div>
+          <div style="font-family:'Inter',sans-serif;font-size:7.5px;line-height:1.5;opacity:.9">• Bridging program pra-PKL<br>• Implementasi LMS<br>• Pelatihan guru digital<br>• Diversifikasi asesmen<br>• Pembinaan karakter</div>
+        </div>
+        <div style="flex:1;background:linear-gradient(135deg,#92400E,#D97706);border-radius:8px;padding:10px;color:#fff">
+          <div style="font-family:'Poppins',sans-serif;font-size:9px;font-weight:800;margin-bottom:4px">🔧 FASE 2 (6–12 Bulan)</div>
+          <div style="font-family:'Inter',sans-serif;font-size:7.5px;line-height:1.5;opacity:.9">• Integrasi AI produktif<br>• Formalisasi mitra industri<br>• Upgrade fasilitas TEFA<br>• Program mentoring alumni<br>• Optimalisasi KOSP</div>
+        </div>
+      </div>
+      <div style="display:flex;gap:6px">
+        <div style="flex:1;background:linear-gradient(135deg,#1D4ED8,#3B82F6);border-radius:8px;padding:10px;color:#fff">
+          <div style="font-family:'Poppins',sans-serif;font-size:9px;font-weight:800;margin-bottom:4px">🚀 FASE 3 (1–2 Tahun)</div>
+          <div style="font-family:'Inter',sans-serif;font-size:7.5px;line-height:1.5;opacity:.9">• TEFA digital terpadu<br>• Sertifikasi internasional<br>• Alumni tracking system<br>• Program dual system<br>• Kelas industri</div>
+        </div>
+        <div style="flex:1;background:linear-gradient(135deg,#4C1D95,#7C3AED);border-radius:8px;padding:10px;color:#fff">
+          <div style="font-family:'Poppins',sans-serif;font-size:9px;font-weight:800;margin-bottom:4px">🏆 FASE 4 (2–3 Tahun)</div>
+          <div style="font-family:'Inter',sans-serif;font-size:7.5px;line-height:1.5;opacity:.9">• Evaluasi kurikulum mandiri<br>• Kapasitas KOSP internal<br>• Monitoring dampak lulusan<br>• Kurikulum adaptif penuh<br>• Benchmark nasional</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sl">Pihak yang Bertanggung Jawab</div>
+    <div class="stg" style="grid-template-columns:1fr 1fr 1fr 1fr">
+      <div class="sc navy"><div class="n" style="font-size:18px">🏫</div><div class="l">Kepala Sekolah & Manajemen</div></div>
+      <div class="sc emerald"><div class="n" style="font-size:18px">👩‍🏫</div><div class="l">Guru & Wakasek Kurikulum</div></div>
+      <div class="sc amber"><div class="n" style="font-size:18px">👨‍🎓</div><div class="l">Peserta Didik</div></div>
+      <div class="sc purple"><div class="n" style="font-size:18px">🏛️</div><div class="l">Pemerintah & Dinas Pendidikan</div></div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">14</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     HAL 15 · KESIMPULAN
+     ════════════════════════════════════════════════ -->
+<div class="page">
+  <div class="pg-hd">
+    <div class="pg-hd-eye">Halaman 15</div>
+    <h2>Kesimpulan</h2>
+  </div>
+  <div class="pg-c">
+
+    <div class="hb-amber">Berdasarkan hasil observasi, wawancara mendalam, dan analisis komprehensif menggunakan Analisis Gap dan Model CIPP, berikut adalah kesimpulan utama kajian implementasi kurikulum di SMK Tunas Markatin.</div>
+
+    <div class="con-items">
+      <div class="con-item">
+        <div class="con-num">1</div>
+        <div class="con-text">SMK Tunas Markatin telah mengimplementasikan <strong>Kurikulum Merdeka sejak 2024</strong> dengan dua program keahlian (AKL & MPLB). Implementasi berjalan baik, khususnya PKL 6 bulan yang menjadi program unggulan dalam mempersiapkan peserta didik memasuki dunia kerja secara nyata.</div>
+      </div>
+      <div class="con-item">
+        <div class="con-num">2</div>
+        <div class="con-text">Analisis kebutuhan mengidentifikasi <strong>tiga dimensi yang belum terpenuhi optimal</strong>: kebutuhan siswa (keterampilan teknologi, kedisiplinan, kesiapan mental), kebutuhan dunia kerja (kompetensi administratif digital & soft skills), dan kebutuhan teknologi (AI, LMS, media digital).</div>
+      </div>
+      <div class="con-item">
+        <div class="con-num">3</div>
+        <div class="con-text">Analisis gap menemukan <strong>kesenjangan signifikan</strong> pada: penyusunan KOSP yang belum mandiri, ketidakbersinambungan materi antarkelas, keterbatasan TEFA, minimnya integrasi teknologi, dan belum formalnya umpan balik industri ke kurikulum — dengan integrasi AI & LMS sebagai gap paling kritis.</div>
+      </div>
+      <div class="con-item">
+        <div class="con-num">4</div>
+        <div class="con-text">Evaluasi CIPP menunjukkan kekuatan pada dimensi <strong>Context</strong> (lokasi strategis, program relevan) dan <strong>Process</strong> (PKL terstruktur, student-centered), namun memerlukan peningkatan pada dimensi <strong>Input</strong> (fasilitas teknologi, SDM) dan <strong>Product</strong> (sistem monitoring lulusan).</div>
+      </div>
+      <div class="con-item">
+        <div class="con-num">5</div>
+        <div class="con-text">Kemitraan dengan <strong>Mahkamah Agung, BINUS, dan UNJ</strong> merupakan aset berharga yang perlu dioptimalkan melalui perluasan mitra ke sektor swasta yang lebih beragam dan formalisasi mekanisme umpan balik industri yang mengalir langsung ke pengembangan kurikulum secara sistematis.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px;background:linear-gradient(135deg,#0B1F4A,#1B4F8A);border-radius:10px;padding:12px 16px;color:#fff">
+      <div style="font-family:'Poppins',sans-serif;font-size:10px;font-weight:800;color:#FCD34D;margin-bottom:5px">✨ Penutup</div>
+      <div style="font-family:'Inter',sans-serif;font-size:8.5px;line-height:1.7;color:rgba(255,255,255,.85)">SMK Tunas Markatin memiliki fondasi yang kuat untuk berkembang menjadi sekolah vokasi unggul. Dengan implementasi 10 rekomendasi jangka pendek dan 5 rekomendasi jangka panjang yang telah dirumuskan, sekolah dapat secara bertahap menutup kesenjangan kurikulum dan meningkatkan relevansi lulusan terhadap kebutuhan industri yang terus berkembang.</div>
+    </div>
+
+  </div>
+  <div class="pg-ft">
+    <span>Analisis Implementasi & Pengembangan Kurikulum — SMK Tunas Markatin</span>
+    <span class="pgnum">15</span>
+  </div>
+</div>
+
+</body>
+</html>
